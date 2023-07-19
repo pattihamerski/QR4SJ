@@ -13,7 +13,10 @@
 				Note that <term>crossing over</term> refers to a bill being passed out of one state legislative chamber (either the State House or State Senate) and moving forward for consideration in the other chamber. Thus, a bill that has crossed over suggests majority support for the bill in at least one chamber.
 			</p>
 				<sage language="r">
-					<input>#Test code here</input>
+					<input>
+					  #Test code here
+					
+					</input>
 				</sage>
 
 			<pre>##                      Bill Type Crossed Over Dead/Failed Introduced Passed
@@ -95,8 +98,29 @@
 ##                 0.0%           80.0% 100.0%
 ##                11.4%           32.8% 100.0%</pre>
 
+			<p><ol>
+        <li>
+                <p>
+        Which bill types are most common? Which bill types are most likely to be enacted into law?
+    </p>
+        </li>
+        
+        <li>
+                <p>
+        What else do you notice about the data? What pieces of information do you want to know more about? What seems missing to you from this data set?
+    </p>
+        </li>
+        
+        <li>
+                <p>
+        How could you use this data set to create a visualization and use it to learn more about, communicate, or make an argument about recent anti-trans laws in the US?
+    </p>
+        </li>
+
+    </ol></p>
+			
 			<p>
-				It seems like bills related to <q>ID updates</q> (i.e., preventing trans and nonbinary people from having their IDs show their correct gender identity), <q>public facilities</q> (often preventing trans people from using the bathroom that fits their gender identity), and <q>youth athletics</q> (i.e., preventing trans girls from competing on girls&apos; sports teams) are most likely to be signed by their state&apos;s governor and enacted into law (after passing both legislative chambers).
+				(MOVE THIS TO EVEN LATER, OR IS HERE OKAY?) It seems like bills related to <q>ID updates</q> (i.e., preventing trans and nonbinary people from having their IDs show their correct gender identity), <q>public facilities</q> (often preventing trans people from using the bathroom that fits their gender identity), and <q>youth athletics</q> (i.e., preventing trans girls from competing on girls&apos; sports teams) are most likely to be signed by their state&apos;s governor and enacted into law (after passing both legislative chambers).
 			</p>
 
 			<p>
@@ -108,6 +132,24 @@
 			</p>
 
 			<p>
+			  <sage language="r">
+					<input>
+					  care_type <- bills_18_23
+            care_type$`Bill Type`[care_type$`Bill Type` == "ID Updates"] <- "Social"
+            care_type$`Bill Type`[care_type$`Bill Type` == "Nondiscrimination Protections"] <- "Social"
+            care_type$`Bill Type`[care_type$`Bill Type` == "Public Facilities"] <- "Social"
+            care_type$`Bill Type`[care_type$`Bill Type` == "Religious Freedom"] <- "Social"
+            care_type$`Bill Type`[care_type$`Bill Type` == "Schools / Education"] <- "Social"
+            care_type$`Bill Type`[care_type$`Bill Type` == "Youth Athletics"] <- "Social"
+            care_type$`Bill Type`[care_type$`Bill Type` == "Drag Performance"] <- "Drag"
+            care_type$`Bill Type`[care_type$`Bill Type` == "Healthcare"] <- "Medical"
+            ggplot(care_type, aes(fill = Status, x = `Bill Type`)) +
+              geom_bar()
+            ggplot(care_type, aes(x = Status, fill = `Bill Type`)) +
+              geom_bar()
+					</input>
+				</sage>
+				
 				<image source='legislation_files/figure-markdown_strict/unnamed-chunk-8-1.png'/><image source='legislation_files/figure-markdown_strict/unnamed-chunk-8-2.png'/>
 			</p>
 
