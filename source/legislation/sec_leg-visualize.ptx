@@ -132,23 +132,7 @@
 			</p>
 
 			<p>
-			  <sage language="r">
-					<input>
-					  care_type <- bills_18_23
-            care_type$`Bill Type`[care_type$`Bill Type` == "ID Updates"] <- "Social"
-            care_type$`Bill Type`[care_type$`Bill Type` == "Nondiscrimination Protections"] <- "Social"
-            care_type$`Bill Type`[care_type$`Bill Type` == "Public Facilities"] <- "Social"
-            care_type$`Bill Type`[care_type$`Bill Type` == "Religious Freedom"] <- "Social"
-            care_type$`Bill Type`[care_type$`Bill Type` == "Schools / Education"] <- "Social"
-            care_type$`Bill Type`[care_type$`Bill Type` == "Youth Athletics"] <- "Social"
-            care_type$`Bill Type`[care_type$`Bill Type` == "Drag Performance"] <- "Drag"
-            care_type$`Bill Type`[care_type$`Bill Type` == "Healthcare"] <- "Medical"
-            ggplot(care_type, aes(fill = Status, x = `Bill Type`)) +
-              geom_bar()
-            ggplot(care_type, aes(x = Status, fill = `Bill Type`)) +
-              geom_bar()
-					</input>
-				</sage>
+
 				
 				<image source='legislation_files/figure-markdown_strict/unnamed-chunk-8-1.png'/><image source='legislation_files/figure-markdown_strict/unnamed-chunk-8-2.png'/>
 			</p>
